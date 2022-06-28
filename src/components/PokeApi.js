@@ -8,7 +8,7 @@ function PokeApi() {
     const nameRef = useRef();
 
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}/`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
         .then((response) => {
             if (!response.ok) {
               throw new Error(
@@ -18,6 +18,7 @@ function PokeApi() {
             return response.json();
           })
           .then((actualData) => {
+            console.log(actualData);
             setData(actualData);
             setError(null);
           })
@@ -28,7 +29,7 @@ function PokeApi() {
           .finally(() => {
             setLoading(false);
           });
-    });
+    }, [name]);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -52,16 +53,20 @@ function PokeApi() {
         {error && (
             <div>{`There is a problem fetching the post data - ${error}`}</div>
         )}
-        <ul>
+        <div>
             {data && (
-                <ul>
-                    <li>{data.name}</li>
-                    <li>{data.id}</li>
-                    <li>{data.generation.name}</li>
-                    <li>{data.flavor_text_entries[0].flavor_text}</li>
-                </ul>
+                <div>
+                    <img src={data.sprites.front_default}></img>
+                    <p>{data.name}</p>
+                    <p>{data.id}</p>
+                    {data.abilities?.map((abilityName) => {
+                        return (
+                            <p key={abilityName}>{abilityName.ability.name}</p>
+                        )
+                    })}
+                </div>
             )}
-        </ul>
+        </div>
         </div>
     )
 }
