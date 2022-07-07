@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import PokeApi from './components/PokeApi';
+import Search from './components/Search';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
   return (
-    <div>
-      <PokeApi />
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Search />
+    </ThemeProvider>
   );
 }
 
