@@ -32,7 +32,7 @@ function PokeCard(data) {
         <Grid item xs={12} textAlign="center">
             <Typography variant="h6">types:</Typography>
             {data.props.types?.map((typeName) => {
-            return <Chip sx={{m: 1}} key={typeName} label={typeName.type.name}/>;
+            return <Chip sx={{m: 1}} key={typeName} id={typeName.type.name} label={typeName.type.name}/>;
             })}
         </Grid>
         <Grid item xs={12} textAlign="center">
