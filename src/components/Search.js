@@ -56,7 +56,7 @@ function Search() {
               <Grid item xs={12}>
                 <TextField
                   id="filled-basic"
-                  label="Pokemon Name"
+                  label="pokemon name"
                   variant="outlined"
                   onChange={handleInputChange}
                 />
