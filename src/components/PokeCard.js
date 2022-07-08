@@ -1,4 +1,5 @@
 import { Card, Grid, Box, Typography, Chip } from "@mui/material";
+import StatsGraph from "./StatsGraph";
 
 function PokeCard(data) {
 
@@ -40,6 +41,14 @@ function PokeCard(data) {
           {data.props.abilities?.map((abilityName) => {
             return <Chip sx={{m: 1}} key={abilityName} label={abilityName.ability.name}/>;
           })}
+        </Grid>
+        <Grid item xs={12} textAlign="center">
+        {data && (
+          <StatsGraph
+          key={data}
+          props={data.props.stats}
+          />
+        )}
         </Grid>
       </Grid>
     </Card>
