@@ -30,13 +30,13 @@ function PokeCard(data) {
           <Typography variant="h3">{data.props.name}</Typography>
           <Typography variant="h5">#{data.props.id}</Typography>
         </Grid>
-        <Grid item xs={12} textAlign="center">
+        <Grid item xs={6} textAlign="center">
             <Typography variant="h6">types:</Typography>
             {data.props.types?.map((typeName) => {
             return <Chip sx={{m: 1}} key={typeName} id={typeName.type.name} label={typeName.type.name}/>;
             })}
         </Grid>
-        <Grid item xs={12} textAlign="center">
+        <Grid item xs={6} textAlign="center">
         <Typography variant="h6">abilities:</Typography>
           {data.props.abilities?.map((abilityName) => {
             return <Chip sx={{m: 1}} key={abilityName} label={abilityName.ability.name}/>;
