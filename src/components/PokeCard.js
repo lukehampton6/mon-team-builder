@@ -2,7 +2,6 @@ import { Card, Grid, Box, Typography, Chip } from "@mui/material";
 import StatsGraph from "./StatsGraph";
 
 function PokeCard(data) {
-
   return (
     <Card variant="outlined" sx={{ p: 2, m: 2 }}>
       <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -31,24 +30,32 @@ function PokeCard(data) {
           <Typography variant="h5">#{data.props.id}</Typography>
         </Grid>
         <Grid item xs={6} textAlign="center">
-            <Typography variant="h6">types:</Typography>
-            {data.props.types?.map((typeName) => {
-            return <Chip sx={{m: 1}} key={typeName} id={typeName.type.name} label={typeName.type.name}/>;
-            })}
-        </Grid>
-        <Grid item xs={6} textAlign="center">
-        <Typography variant="h6">abilities:</Typography>
-          {data.props.abilities?.map((abilityName) => {
-            return <Chip sx={{m: 1}} key={abilityName} label={abilityName.ability.name}/>;
+          <Typography variant="h6">types:</Typography>
+          {data.props.types?.map((typeName) => {
+            return (
+              <Chip
+                sx={{ m: 1 }}
+                key={typeName}
+                id={typeName.type.name}
+                label={typeName.type.name}
+              />
+            );
           })}
         </Grid>
-        <Grid item xs={12} textAlign="center">
-        {data && (
-          <StatsGraph
-          key={data}
-          props={data.props.stats}
-          />
-        )}
+        <Grid item xs={6} textAlign="center">
+          <Typography variant="h6">abilities:</Typography>
+          {data.props.abilities?.map((abilityName) => {
+            return (
+              <Chip
+                sx={{ m: 1 }}
+                key={abilityName}
+                label={abilityName.ability.name}
+              />
+            );
+          })}
+        </Grid>
+        <Grid item xs={10} textAlign="center">
+          {data && <StatsGraph key={data} props={data.props.stats} />}
         </Grid>
       </Grid>
     </Card>

@@ -70,29 +70,11 @@ function Search() {
           </form>
         </Card>
       </Container>
-      {/* <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Name</label>
-                <input
-                id="name"
-                type="text"
-                ref={nameRef}
-                />
-            </div>
-            <button type="submit">Submit</button>
-        </form> */}
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      <div>
-        {data && (
-          <PokeCard
-          key={data}
-          props={data}
-          />
-        )}
-      </div>
+      <div>{data && <PokeCard key={data} props={data} />}</div>
     </div>
   );
 }

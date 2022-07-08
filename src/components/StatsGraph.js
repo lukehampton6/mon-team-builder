@@ -1,88 +1,59 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import { Bar } from "react-chartjs-2";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+import Chart from "chart.js/auto";
 
 function StatsGraph(stats) {
-
-    const labels = [
-        "hp",
-        "attack",
-        "defense",
-        "special attack",
-        "special defense",
-        "speed",
-      ];
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "stats",
-      },
-    },
-    labels: { labels },
-    
-}
-
   const data = {
+    labels: [
+      "hp",
+      "attack",
+      "defense",
+      "special attack",
+      "special defense",
+      "speed",
+    ],
     datasets: [
       {
-        label: "hp",
-        data: stats.props[0].base_stat,
-        backgroundColor: "#FF5959",
-      },
-      {
-        label: "attack",
-        data: stats.props[1].base_stat,
-        backgroundColor: "#F5AC78",
-      },
-      {
-        label: "defense",
-        data: stats.props[2].base_stat,
-        backgroundColor: "#FAE078",
-      },
-      {
-        label: "special attack",
-        data: stats.props[3].base_stat,
-        backgroundColor: "#9DB7F5",
-      },
-      {
-        label: "special defense",
-        data: stats.props[4].base_stat,
-        backgroundColor: "#A7DB8D",
-      },
-      {
-        label: "speed",
-        data: stats.props[5].base_stat,
-        backgroundColor: "#FA92B2",
+        label: "stat",
+        data: [
+          stats.props[0].base_stat,
+          stats.props[1].base_stat,
+          stats.props[2].base_stat,
+          stats.props[3].base_stat,
+          stats.props[4].base_stat,
+          stats.props[5].base_stat,
+        ],
+        backgroundColor: [
+          "#FF5959",
+          "#F5AC78",
+          "#FAE078",
+          "#9DB7F5",
+          "#A7DB8D",
+          "#FA92B2",
+        ],
+        barThickness: 30,
       },
     ],
   };
-  return (
-    <div>
-      <Bar options={options} data={data} />
-    </div>
-  );
+
+  const options = {
+    responsive: true,
+    aspectRatio: 2,
+    indexAxis: "y",
+    plugins: {
+      title: {
+        display: true,
+        text: "stats",
+        color: "#FFF",
+        font: {
+          size: 30,
+        },
+      },
+      legend: {
+        display: false,
+      },
+    },
+  };
+  return <Bar data={data} options={options} />;
 }
 
 export default StatsGraph;
