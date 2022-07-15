@@ -38,7 +38,9 @@ function Search() {
 
   function handleInputChange(event) {
     event.preventDefault();
-    setName(event.target.value);
+    let searchValue = event.target.value;
+    let lowercaseName = searchValue.toLowerCase();
+    setName(lowercaseName);
   }
 
   return (

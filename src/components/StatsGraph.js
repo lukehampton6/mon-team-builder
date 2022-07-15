@@ -50,7 +50,7 @@ function StatsGraph(stats) {
       },
       legend: {
         display: false,
-      },
+      }
     },
   };
   return <Bar data={data} options={options} />;
