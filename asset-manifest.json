@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mon-team-builder/static/css/main.84fd94fe.css",
-    "main.js": "/mon-team-builder/static/js/main.dbfe9e8d.js",
+    "main.js": "/mon-team-builder/static/js/main.7de54cd5.js",
     "static/js/787.1d5b37e7.chunk.js": "/mon-team-builder/static/js/787.1d5b37e7.chunk.js",
     "index.html": "/mon-team-builder/index.html",
     "main.84fd94fe.css.map": "/mon-team-builder/static/css/main.84fd94fe.css.map",
-    "main.dbfe9e8d.js.map": "/mon-team-builder/static/js/main.dbfe9e8d.js.map",
+    "main.7de54cd5.js.map": "/mon-team-builder/static/js/main.7de54cd5.js.map",
     "787.1d5b37e7.chunk.js.map": "/mon-team-builder/static/js/787.1d5b37e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84fd94fe.css",
-    "static/js/main.dbfe9e8d.js"
+    "static/js/main.7de54cd5.js"
   ]
 }
