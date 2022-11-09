@@ -25,6 +25,26 @@ function PokeCard(data) {
             src={data.props.sprites.back_default}
           />
         </Grid>
+        <Grid item xs={6} textAlign="right">
+          <Box
+            component="img"
+            sx={{
+              height: 200,
+              width: 200,
+            }}
+            src={data.props.sprites.front_shiny}
+          />
+        </Grid>
+        <Grid item xs={6} textAlign="left">
+          <Box
+            component="img"
+            sx={{
+              height: 200,
+              width: 200,
+            }}
+            src={data.props.sprites.back_shiny}
+          />
+        </Grid>
         <Grid item xs={12} textAlign="center">
           <Typography variant="h3">{data.props.name}</Typography>
           <Typography variant="h5">#{data.props.id}</Typography>
